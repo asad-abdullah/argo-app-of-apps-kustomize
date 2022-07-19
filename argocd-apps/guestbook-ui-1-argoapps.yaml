@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/asad-abdullah/argo-app-of-apps.git
+    repoURL: https://github.com/asad-abdullah/argo-app-of-apps-kustomize
     targetRevision: HEAD
-    path: guestbook-ui-1/deployment
+    path: guestbook-ui-1/staging
     plugin:
       name: argocd-vault-plugin
   destination:
