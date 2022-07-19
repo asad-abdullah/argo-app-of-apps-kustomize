@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: argocd-apps
-    repoURL: 'https://github.com/asad-abdullah/argo-app-of-apps-kustomize'
+    repoURL: 'https://github.com/asad-abdullah/argo-app-of-apps-kustomize.git'
     targetRevision: HEAD
   project: default
   syncPolicy:
