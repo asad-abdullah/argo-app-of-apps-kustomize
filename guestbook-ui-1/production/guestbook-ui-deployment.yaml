@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-ui-1
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: guestbook-ui-1
+  template:
+    metadata:
+      labels:
+        app: guestbook-ui-1
+    spec:
+      containers:
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        name: guestbook-ui-1
+        ports:
+        - containerPort: 80
+        env:
+        - name: GUESTBOOK_UI
+          valueFrom:
+            configMapKeyRef:
+              name: guestbook-ui-1-config
+              key: db.url
+        - name: GUESTBOOK_UI_SEC
+          valueFrom:
+            secretKeyRef:
+              name: guestbook-ui-1-secret
+              key: db.user

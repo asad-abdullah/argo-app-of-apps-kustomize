@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-ui-1
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/asad-abdullah/argo-app-of-apps.git
+    targetRevision: HEAD
+    path: guestbook-ui-1/deployment
+    plugin:
+      name: argocd-vault-plugin
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default

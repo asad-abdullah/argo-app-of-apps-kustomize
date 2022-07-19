@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guestbook-ui-1-config
+  namespace: default
+  labels:
+    app.kubernetes.io/name: guestbook-ui-1
+data:
+  db.url: "test"
+  db.env: "test"
